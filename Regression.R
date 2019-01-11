@@ -562,10 +562,10 @@ plot(fit6)
 ## Checking the scoring for fit3
 
 ###############################################################
-x<-predict(fit6)
+x<-predict(fit6,training)
 y=(0.2*x+1)^5    # Denormalising the dependent variable
 
-t1_fit<-cbind(training1, pred_spend = y)
+t1_fit<-cbind(training, pred_spend = y)
 
 t1_fit<- transform(t1_fit, APE = abs(pred_spend - TotalSpend)/TotalSpend)
 mean(t1_fit$APE)
